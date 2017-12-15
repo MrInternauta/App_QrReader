@@ -1,0 +1,41 @@
+<ion-header>
+
+  <ion-navbar color="dark">
+    <ion-title> Historial </ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content>
+
+  <ion-list>
+
+  <button ion-item
+            *ngFor="let data of historial; let i = index"
+            (click)="abrir_scan( i )">
+            <ion-avatar item-start *ngIf="data.tipo == 'HTTP' ">
+              <ion-icon name="link"></ion-icon>
+          </ion-avatar>
+
+          <ion-avatar item-start *ngIf="data.tipo == 'Mapa' ">
+            <ion-icon name="navigate"></ion-icon>
+        </ion-avatar>
+        <ion-avatar item-start *ngIf="data.tipo == 'Email' ">
+          <ion-icon name="at"></ion-icon>
+      </ion-avatar>
+
+        <ion-avatar item-start *ngIf="data.tipo == 'Contacto' ">
+          <ion-icon name="contact"></ion-icon>
+      </ion-avatar>
+      <ion-avatar item-start *ngIf="data.tipo == 'SMS' ">
+        <ion-icon name="mail"></ion-icon>
+    </ion-avatar>
+    <ion-avatar item-start *ngIf="data.tipo == 'No definido' ">
+      <ion-icon name="clipboard"></ion-icon>
+  </ion-avatar>
+      {{ data.info }}
+      <p>
+        {{ data.tipo }}
+      </p>
+    </button>
+  </ion-list>
+</ion-content>
